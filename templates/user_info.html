@@ -4,5 +4,11 @@
 <h1>{{user.username}}</h1>
 <h2>{{user.first_name}}{{user.last_name}}</h2>
 <h3>{{user.email}}</h3>
+<h4>Feedbacks</h4>
+<ul>
+  {% for feedback in user.feedbacks %}
+  <li><b>{{feedback.title}}</b> - {{feedback.content}}</li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
