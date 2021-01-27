@@ -12,3 +12,12 @@ class CreateUserForm(FlaskForm):
 class LoginUserForm(FlaskForm):
     username = StringField("Username", validators=[InputRequired()])
     password = PasswordField("Password", validators=[InputRequired()])
+
+class FeedbackForm(FlaskForm):
+    title = StringField("Title", validators=[InputRequired()])
+    content = StringField("Content", validators=[InputRequired()])
+
+class DeleteForm(FlaskForm):
+    """Delete form -- this form is intentionally blank."""
+
+

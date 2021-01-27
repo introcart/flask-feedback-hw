@@ -8,7 +8,33 @@
 <ul>
   {% for feedback in user.feedbacks %}
   <li><b>{{feedback.title}}</b> - {{feedback.content}}</li>
+  <form>
+    {{form.hidden_tag()}}
+    <button class="btn btn-primary" 
+            formmethod="GET" 
+            formaction="/feedback/{{feedback.id}}/update">
+      Edit
+    </button>
+    <button class="btn btn-danger" 
+            formmethod="POST" 
+            formaction="/feedback/{{feedback.id}}/delete">
+      Delete
+    </button>
+  </form>
   {% endfor %}
 </ul>
+<p>
+  <a href="/users/{{user.username}}/feedback/add" class="btn btn-primary">
+    Add feedback
+  </a>
+  <form>
+    <button class="btn btn-danger btn-sm"
+            formaction="/users/{{user.username}}/delete"
+            formmethod="POST">
+      Delete User      
+    </button>
+  </form>
+</p>
+
 
 {% endblock %}
